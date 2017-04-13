@@ -42,7 +42,7 @@ conn=net.createConnection(net.TCP, 0)
 conn:on("connection",function(conn, payload)
 conn:send("GET /my/php/nodemcu.php?mac="..lm.."&la_ip="..la_ip
         .." HEAD / HTTP/1.1\r\n"
-        .. "Host: cd3307.myfoscam.org\r\n"
+        .. "Host: YOUR_BROKER\r\n"
         .."Accept: */*\r\n"
         .."User-Agent: Mozilla/4.0 (compatible; esp8266 Lua;)"
         .."\r\n\r\n")
@@ -56,7 +56,7 @@ print("Cadena MQTT : "..c)
 conn:close()
 end)
 
-conn:connect(80,'cd3307.myfoscam.org')
+conn:connect(80,'YOUR_RASPBERRY_IP')
     print("Raspberry OnLine")
     tmr.alarm(3,3000,1,function()
         print("Corriendo Archivo MQTT")
@@ -71,7 +71,7 @@ conn:connect(80,'cd3307.myfoscam.org')
         print(lm2)
         print(lm3)
 
-        m = mqtt.Client(lm,120,"pi","raspberry")
+        m = mqtt.Client(lm,120,"MQTT_USER","MQTT_PASSWORD")
 
         m:lwt("/lwt","offline",0,0)
 
