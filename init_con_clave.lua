@@ -16,7 +16,7 @@ end)
 print("Configurando WIFI")
  
 wifi.setmode(wifi.STATION)
-wifi.sta.config("CARLITA2","carlandrea")
+wifi.sta.config("SSID","PASSWORD")
 --wifi.sta.config("INFORMATICA","VTRlabo15")
 
 tmr.alarm(1,2000,1,function()
